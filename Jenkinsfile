@@ -13,16 +13,19 @@ pipeline {
 
 				}
 			}
-		stage('Docker Build') {
+
+
+		stage('Deploy to K8s') {
 			steps {
-				sh 'docker build -t $IMAGE:$TAG .'
+				sh 'kubectl apply -f Deployment.yaml'
+				sh 'kubectl apply -f service.yaml'
 			}
 		}
-		stage('Docker Push') {
-			steps {
-				sh 'docker push $IMAGE:$TAG'
-			}
-		}		
+
+
+
+
+		
 	}
 }
 

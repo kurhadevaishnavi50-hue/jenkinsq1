@@ -18,20 +18,11 @@ pipeline {
 				sh 'docker build -t $IMAGE:$TAG .'
 			}
 		}
-		stage('Docker Login & Push') {
+		stage('Docker Push') {
 			steps {
-				withCredentials([usernamePassword(
-					credentialsId: 'docker-creds',
-					usernameVariable: 'USER',
-					passwordVariable: 'PASS'
-
-					passwordVariable: 'PASS'
-					)]) {
-						sh 'echo $PASS | docker login -u $USER --password-stdin'
-						sh 'docker push $IMAGE:$TAG'
-					}
-				}
-		}
+				sh 'docker push $IMAGE:$TAG'
+			}
+		}		
 	}
 }
 

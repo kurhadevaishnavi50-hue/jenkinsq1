@@ -1,7 +1,7 @@
 pipeline {
 	agent any
 	environment {
-		IMAGE = "your-dockerhub-username/java-app"
+		IMAGE = "vaishru/jenkinsq1"
 		TAG = "v1"
 	}
 

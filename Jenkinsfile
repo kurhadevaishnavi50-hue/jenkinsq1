@@ -4,7 +4,7 @@ pipeline {
 		stage('Clone') {
 			steps {
 
-				git 'https://github.com/your-username/java-cicd.git'
+				git 'https://github.com/kurhadevaishnavi50-hue/jenkinsq1.git'
 
 			}		
 	}	
